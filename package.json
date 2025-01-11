@@ -1,8 +1,8 @@
 {
   "name": "taily-ui-create",
   "type": "module",
-  "version": "1.0.1",
-  "description": "Boilerplate template for creating beautiful landing pages using the Taily UI library.",
+  "version": "1.0.2",
+  "description": "📇 Boilerplate template for creating beautiful landing pages using the Taily UI library.",
   "main": "src/index.js",
   "bin": {
     "taily-ui-create": "src/index.js"
@@ -16,7 +16,7 @@
   ],
   "author": "Nikita Stadnik <the@nikdelv.in>",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "prompts": "^2.4.2"
   }
 }
