@@ -1,0 +1,545 @@
+---
+import Layout from '../layouts/Layout.astro'
+import * as tailyUI from 'taily-ui'
+import { favicon } from '../icons/favicon'
+import { languages } from '../icons/languages'
+import { frameworks } from '../icons/frameworks'
+import { runtime } from '../icons/runtime'
+import { libraries } from '../icons/libraries'
+import { deploy } from '../icons/deploy'
+import { standards } from '../icons/standards'
+import { software } from '../icons/software'
+
+const month = new Date().getMonth()
+const day = new Date().getDate()
+const year = new Date().getFullYear()
+const monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+]
+export async function getStaticPaths() {
+    return [undefined, 'default', 'primary', 'secondary', 'success', 'warning', 'error', 'ghost'].map((theme) => ({
+        params: { theme }
+    }))
+}
+const { theme } = Astro.params
+const colorTheme =
+    (theme as 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'ghost') ?? 'default'
+---
+
+<Layout
+    title="Hi, Anon Dev here!"
+    description="* years experienced, * projects launched, * open-source contibuted, * IT-courses completed unknown developer."
+    keywords="graphic design, web design, website design, website builder, web developer, web designer, webdesign, ecommerce website, web design company, website creator, website designer, responsive web design, web development company, best website design, web design software, web page design, build a website, web developer salary, design website, web design courses, how to design a website, web design inspiration, website layout, web designer salary, web application development"
+    url="https://unknown-developer.com"
+    imageUrl="https://unknown-developer.com/projects/portfolio.jpg"
+    brand="Anon Dev"
+    author="Unknown Developer"
+    twitter="@unknown-developer"
+    color={colorTheme}
+>
+    <main class="select-none overflow-hidden">
+        <fragment
+            set:html={tailyUI.OpenSourcePromo({
+                logo: favicon,
+                title: 'Anon Dev',
+                color: colorTheme,
+                text: [
+                    { type: 'default', value: 'Launch' },
+                    { type: 'primary', value: 'beautiful' },
+                    {
+                        type: 'default',
+                        value: `ideas directly to your customers' PC or phone devices with help of`
+                    },
+                    { type: 'secondary', value: 'unknown developer' }
+                ],
+                description:
+                    '* years experienced, * projects launched, * open-source contibuted, * IT-courses completed unknown developer.',
+                button: {
+                    title: 'To my projects',
+                    link: '#projects'
+                },
+                github: 'https://github.com/unknown-developer'
+            })}
+        />
+        <fragment
+            id="kpi"
+            set:html={tailyUI.KPICards({
+                title: 'I can offer you',
+                color: colorTheme,
+                cards: [
+                    { title: '*', description1: 'years of', description2: 'experience' },
+                    { title: '*', description1: 'launched', description2: 'projects' },
+                    { title: '*', description1: 'open source', description2: 'projects' },
+                    { title: '*', description1: 'completed', description2: 'courses' }
+                ],
+                button: {
+                    title: 'Hire me today',
+                    link: '#footer'
+                }
+            })}
+        />
+        <fragment
+            id="features"
+            set:html={tailyUI.FeatureCards({
+                title: "I've learned a lot",
+                color: colorTheme,
+                reverse: false,
+                featureTitle: 'My journey',
+                featureDescription: [
+                    { type: 'default', value: 'Starts with' },
+                    { type: 'primary', value: 'idea' },
+                    { type: 'default', value: 'to create' },
+                    { type: 'primary', value: 'something unique' }
+                ],
+                featureOptions: [
+                    "I've created something basic - first project that taught me how to use React.JS, and Redux Toolkit",
+                    "I've created something complex - second project that taught me how to use Next.JS, Web Sockets, Data Streams, WebRTC, and RESTful APIs",
+                    "I've created something inspiring - third project that taught me how to use Vue.JS, Three.JS & GSAP"
+                ],
+                button: {
+                    title: 'Look at my work',
+                    link: '#projects'
+                }
+            })}
+        />
+        <fragment
+            id="projects"
+            set:html={tailyUI.Projects({
+                title: 'Best latest works',
+                color: colorTheme,
+                projects: [
+                    {
+                        image: '/projects/portfolio.jpg',
+                        title: 'Portfolio',
+                        description: [
+                            { type: 'default', value: 'Simple & stylish web site for' },
+                            { type: 'primary', value: 'introduction' }
+                        ],
+                        options: [
+                            'Google Material Design approach to give the smoothest site journey for each portfolio visitor',
+                            'GSAP animation library to make web pages more dynamic and attention-grabbing. Icons and 3D shapes to make web pages more visual-rich',
+                            '7 gradient color themes to add on webpage customization settings and demonstrate flexibility'
+                        ],
+                        button: {
+                            title: 'Read guideline',
+                            link: 'https://github.com/unknown-developer',
+                            newPage: true
+                        },
+                        color: 'default'
+                    }
+                ],
+                button: {
+                    title: 'To my experience',
+                    link: '#jobs'
+                }
+            })}
+        />
+        <fragment
+            id="skills"
+            set:html={tailyUI.Skills({
+                title: 'Skills & inspiration',
+                color: colorTheme,
+                rows: [
+                    {
+                        title: 'Languages / Frameworks / Runtime',
+                        skills: [
+                            { title: 'JavaScript', icon: languages.javascript },
+                            { title: 'TypeScript', icon: languages.typescript },
+                            { title: 'HTML 5', icon: languages.html5 },
+                            { title: 'CSS 3', icon: languages.css3 },
+                            { title: 'SASS', icon: languages.sass },
+                            { title: 'Markdown', icon: languages.markdown },
+                            { title: 'GraphQL', icon: languages.graphql },
+                            { title: 'Python', icon: languages.python },
+                            { title: 'Java', icon: languages.java },
+                            { title: 'Swift', icon: languages.swift },
+                            { title: 'React', icon: frameworks.react },
+                            { title: 'Preact', icon: frameworks.preact },
+                            { title: 'Solid JS', icon: frameworks.solid },
+                            { title: 'Astro JS', icon: frameworks.astro },
+                            { title: 'Next JS', icon: frameworks.nextjs },
+                            { title: 'Svelte', icon: frameworks.svelte },
+                            { title: 'Vue JS', icon: frameworks.vuejs },
+                            { title: 'Nuxt JS', icon: frameworks.nuxtjs },
+                            { title: 'Flutter', icon: frameworks.flutter },
+                            { title: 'Electron', icon: frameworks.electron },
+                            { title: 'Express', icon: frameworks.express },
+                            { title: 'Nest JS', icon: frameworks.nestjs },
+                            { title: 'Django', icon: frameworks.django },
+                            { title: 'Flask', icon: frameworks.flask },
+                            { title: 'Fast API', icon: frameworks.fastapi },
+                            { title: 'Node JS', icon: runtime.nodejs },
+                            { title: 'TS Node', icon: runtime.tsnode },
+                            { title: 'Deno', icon: runtime.deno },
+                            { title: 'Bun', icon: runtime.bun },
+                            { title: 'PyPy', icon: runtime.pypy }
+                        ]
+                    },
+                    {
+                        title: 'Open-source libraries & toolkits',
+                        skills: [
+                            { title: 'Bootstrap', icon: libraries.bootstrap },
+                            { title: 'Tailwind CSS', icon: libraries.tailwindcss },
+                            { title: 'JQuery', icon: libraries.jquery },
+                            { title: 'PostCSS', icon: libraries.postcss },
+                            { title: 'Styled Components', icon: libraries.styledcomponents },
+                            { title: 'React Router', icon: libraries.reactrouter },
+                            { title: 'React Hook Form', icon: libraries.reacthookform },
+                            { title: 'Formik', icon: libraries.formik },
+                            { title: 'Redux', icon: libraries.redux },
+                            { title: 'Recoil', icon: libraries.recoil },
+                            { title: 'Ant Design', icon: libraries.antdesign },
+                            { title: 'MUI', icon: libraries.mui },
+                            { title: 'Taily UI', icon: libraries.tailyui },
+                            { title: 'Next UI', icon: libraries.nextui },
+                            { title: 'Mantine', icon: libraries.mantine },
+                            { title: 'Framer Motion', icon: libraries.framermotion },
+                            { title: 'Three JS', icon: libraries.threejs },
+                            { title: 'D3 JS', icon: libraries.d3js },
+                            { title: 'Babylon JS', icon: libraries.babylonjs },
+                            { title: 'Pixi JS', icon: libraries.pixijs },
+                            { title: 'Webpack', icon: libraries.webpack },
+                            { title: 'Vite', icon: libraries.vite },
+                            { title: 'Chart JS', icon: libraries.chartjs },
+                            { title: 'Plotly', icon: libraries.plotly },
+                            { title: 'Pandas', icon: libraries.pandas },
+                            { title: 'Numpy', icon: libraries.numpy },
+                            { title: 'OpenCV', icon: libraries.opencv },
+                            { title: 'TensorFlow', icon: libraries.tensorflow },
+                            { title: 'PyTorch', icon: libraries.pytorch },
+                            { title: 'Scikit-Learn', icon: libraries.scikitlearn }
+                        ]
+                    },
+                    {
+                        title: 'Deploy / Testing / Data management',
+                        skills: [
+                            { title: 'Git', icon: deploy.git },
+                            { title: 'GitHub', icon: deploy.github },
+                            { title: 'Bitbucket', icon: deploy.bitbucket },
+                            { title: 'Docker', icon: deploy.docker },
+                            { title: 'Jenkins', icon: deploy.jenkins },
+                            { title: 'Strapi', icon: deploy.strapi },
+                            { title: 'MongoDB', icon: deploy.mongodb },
+                            { title: 'MySQL', icon: deploy.mysql },
+                            { title: 'SQLite', icon: deploy.sqlite },
+                            { title: 'PostgreSQL', icon: deploy.postgresql },
+                            { title: 'Jest', icon: deploy.jest },
+                            { title: 'Cypress', icon: deploy.cypress },
+                            { title: 'Selenium', icon: deploy.selenium },
+                            { title: 'Puppeteer', icon: deploy.puppeteer },
+                            { title: 'Postman', icon: deploy.postman },
+                            { title: 'NPM', icon: deploy.npm },
+                            { title: 'PNPM', icon: deploy.pnpm },
+                            { title: 'Yarn', icon: deploy.yarn },
+                            { title: 'Homebrew', icon: deploy.homebrew },
+                            { title: 'PyPI', icon: deploy.pypi },
+                            { title: 'Nginx', icon: deploy.nginx },
+                            { title: 'CPanel', icon: deploy.cpanel },
+                            { title: `Let's Encrypt`, icon: deploy.letsencrypt },
+                            { title: 'Grafana', icon: deploy.grafana },
+                            { title: 'Sentry', icon: deploy.sentry },
+                            { title: 'Google Cloud', icon: deploy.googlecloud },
+                            { title: 'Firebase', icon: deploy.firebase },
+                            { title: 'Netlify', icon: deploy.netlify },
+                            { title: 'Vercel', icon: deploy.vercel },
+                            { title: 'Heroku', icon: deploy.heroku }
+                        ]
+                    },
+                    {
+                        title: 'Web standards / IDE / Software',
+                        skills: [
+                            { title: 'ENV', icon: standards.env },
+                            { title: 'JWT', icon: standards.jwt },
+                            { title: 'WebRTC', icon: standards.webrtc },
+                            { title: 'PWA', icon: standards.pwa },
+                            { title: 'OWASP', icon: standards.owasp },
+                            { title: 'OpenAPI', icon: standards.openapi },
+                            { title: 'Swagger', icon: standards.swagger },
+                            { title: 'ElasticSearch', icon: standards.elasticsearch },
+                            { title: 'Eslint', icon: standards.eslint },
+                            { title: 'Prettier', icon: standards.prettier },
+                            { title: 'WebStorm', icon: software.webstorm },
+                            { title: 'XCode', icon: software.xcode },
+                            { title: 'Android Studio', icon: software.androidstudio },
+                            { title: 'PyCharm', icon: software.pycharm },
+                            { title: 'CodeSandbox', icon: software.codesandbox },
+                            { title: 'Figma', icon: software.figma },
+                            { title: 'Sketch', icon: software.sketch },
+                            { title: 'Behance', icon: software.behance },
+                            { title: 'Adobe Illustrator', icon: software.adobeillustrator },
+                            { title: 'Adobe Photoshop', icon: software.adobephotoshop },
+                            { title: 'Jira', icon: software.jira },
+                            { title: 'ClickUp', icon: software.clickup },
+                            { title: 'Miro', icon: software.miro },
+                            { title: 'Diagrams', icon: software.diagrams },
+                            { title: 'Slack', icon: software.slack },
+                            { title: 'Discord', icon: software.discord },
+                            { title: 'OpenAI', icon: software.openai },
+                            { title: 'Grammarly', icon: software.grammarly },
+                            { title: 'LeetCode', icon: software.leetcode },
+                            { title: 'CodeWars', icon: software.codewars }
+                        ]
+                    }
+                ],
+                musicTitle: 'Favorite music for development',
+                music: [
+                    'https://open.spotify.com/embed/track/5TL04XPWpL2rTK7HLBWK6N',
+                    'https://open.spotify.com/embed/track/2Z8WuEywRWYTKe1NybPQEW',
+                    'https://open.spotify.com/embed/track/43aktSsHN3Pgu0dzw3BS5W',
+                    'https://open.spotify.com/embed/track/7Iiek3SL6PluRxj9IgbTC1',
+                    'https://open.spotify.com/embed/track/7sA2SKTo1QbTSSYn5YvJC4'
+                ],
+                button: {
+                    title: 'Read my thoughts',
+                    link: 'https://dev.to/unknown-developer',
+                    newPage: true
+                }
+            })}
+        />
+        <fragment
+            id="jobs"
+            set:html={tailyUI.Jobs({
+                title: 'Work experience',
+                color: colorTheme,
+                jobs: [
+                    {
+                        from: ['1', 'January', '1990'],
+                        to: [String(day), monthNames[month], String(year)],
+                        title: 'Freelance Projects',
+                        description: [
+                            { type: 'default', value: 'Just' },
+                            { type: 'primary', value: 'regular' },
+                            { type: 'default', value: 'average hoodie-guy' },
+                            { type: 'primary', value: 'developer' }
+                        ],
+                        role: [
+                            `Eternaly struggling between "I should refactor this", "If it ain't broke, don't fix it" and "How many cups of coffee do I need tonight"`,
+                            'Debugging code in the shower, during training at gym, after dinner, while walking with dog, and between online gaming sessions',
+                            'Arguing with clients because "it works on my machine" due to the frantic Googling and desperate attempts to recreate the issue'
+                        ],
+                        button: {
+                            title: 'Visit website',
+                            link: 'https://unknown-developer.com',
+                            newPage: true
+                        }
+                    }
+                ]
+            })}
+        />
+        <fragment
+            id="footer"
+            set:html={tailyUI.Footer({
+                color: colorTheme,
+                blocks: [
+                    {
+                        title: 'About creator',
+                        text: [
+                            { type: 'default', value: `Hi, I'm` },
+                            { type: 'primary', value: 'Anon Dev' },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: `I'm a passionate and ambitious` },
+                            { type: 'primary', value: 'unknown developer' },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: 'My love is' },
+                            { type: 'primary', value: 'developing' },
+                            {
+                                type: 'default',
+                                value: 'cross-platform applications from zero to production'
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: `I've mastered` },
+                            { type: 'primary', value: 'T-shaped skills' },
+                            {
+                                type: 'default',
+                                value: `that help me work solo on my own big projects`
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Contacts',
+                        text: [
+                            { type: 'default', value: 'Email:' },
+                            {
+                                type: 'primary',
+                                value: 'the@unknown-developer.com',
+                                link: 'mailto:the@unknown-developer.com',
+                                newPage: true
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: 'Github:' },
+                            {
+                                type: 'primary',
+                                value: '@unknown-developer',
+                                link: 'https://github.com/unknown-developer',
+                                newPage: true
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: 'DEV Blog:' },
+                            {
+                                type: 'primary',
+                                value: '@unknown-developer',
+                                link: 'https://dev.to/unknown-developer',
+                                newPage: true
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: 'Behance:' },
+                            {
+                                type: 'primary',
+                                value: '@unknown-developer',
+                                link: 'https://www.behance.net/unknown-developer',
+                                newPage: true
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: 'Telegram:' },
+                            {
+                                type: 'primary',
+                                value: '@unknown-developer',
+                                link: 'https://t.me/unknown-developer',
+                                newPage: true
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: 'LinkedIn:' },
+                            {
+                                type: 'primary',
+                                value: '@unknown-developer',
+                                link: 'https://www.linkedin.com/in/unknown-developer',
+                                newPage: true
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Projects',
+                        text: [
+                            {
+                                type: 'primary',
+                                value: 'Portfolio',
+                                link: 'https://unknown-developer.com',
+                                newPage: true
+                            },
+                            {
+                                type: 'default',
+                                value: '<br/>Simple & stylish portfolio website for introduction'
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Coming soon',
+                        text: [
+                            {
+                                type: 'primary',
+                                value: 'Nothing',
+                                link: 'https://unknown-developer.com',
+                                newPage: true
+                            },
+                            {
+                                type: 'default',
+                                value: '<br/>Probably nothing is coming soon here from this lazy dude'
+                            }
+                        ]
+                    },
+                    {
+                        title: 'Experience',
+                        text: [
+                            {
+                                type: 'primary',
+                                value: `01.01.90 - ${String(day).padStart(2, '0')}.${String(month + 1).padStart(2, '0')}.${String(year).slice(2)}:`
+                            },
+                            { type: 'default', value: 'Freelance Projects' },
+                            { type: 'primary', value: 'Role:' },
+                            {
+                                type: 'default',
+                                value: 'Just regular average hoodie-guy developer'
+                            },
+                            { type: 'primary', value: 'Suffering:' },
+                            {
+                                type: 'default',
+                                value: `"I should refactor this" or "If it ain't broke, don't fix it"`
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            {
+                                type: 'default',
+                                value: 'Total time on development "battlefield":'
+                            },
+                            {
+                                type: 'primary',
+                                value: `${Math.floor((Date.now() - Date.parse('1 January 1990 00:00:00 GMT')) / (1000 * 60 * 60 * 24) / 365)}`
+                            },
+                            { type: 'default', value: 'years and' },
+                            {
+                                type: 'primary',
+                                value: `${Math.floor(((Date.now() - Date.parse('1 January 1990 00:00:00 GMT')) / (1000 * 60 * 60 * 24)) % 365)}`
+                            },
+                            { type: 'default', value: 'days' }
+                        ]
+                    },
+                    {
+                        title: 'Skills',
+                        text: [
+                            { type: 'primary', value: 'Languages:' },
+                            {
+                                type: 'default',
+                                value: 'JavaScript, TypeScript, HTML 5, CSS 3, Python, Java, Swift'
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'primary', value: 'Frameworks:' },
+                            {
+                                type: 'default',
+                                value: 'React, Solid, Astro, Next, Svelte, Vue, Nuxt, Nest, Electron, Flask'
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'primary', value: 'Libraries:' },
+                            {
+                                type: 'default',
+                                value: 'Bootstrap, Tailwind, Formik, Redux, Recoil, GSAP, Framer, Three.JS'
+                            },
+                            { type: 'default', value: '<div style="padding:8px;"></div>' },
+                            { type: 'default', value: 'And more other deeply learned' },
+                            { type: 'primary', value: 'tools', link: '#skills' }
+                        ]
+                    },
+                    {
+                        title: 'Cources',
+                        text: [
+                            { type: 'primary', value: '01.01.90:' },
+                            {
+                                type: 'default',
+                                value: 'Courses? I know everything since I was born'
+                            }
+                        ]
+                    }
+                ]
+            })}
+        />
+    </main>
+</Layout>
+<style is:global>
+    :root::-webkit-scrollbar {
+        display: none !important;
+    }
+    :root::-webkit-scrollbar-thumb {
+        background-color: transparent !important;
+    }
+    :root::-webkit-scrollbar-track {
+        background-color: transparent !important;
+    }
+    .overflow-x-scroll::-webkit-scrollbar {
+        display: none !important;
+    }
+    .overflow-x-scroll::-webkit-scrollbar-thumb {
+        background-color: transparent !important;
+    }
+    .overflow-x-scroll::-webkit-scrollbar-track {
+        background-color: transparent !important;
+    }
+</style>

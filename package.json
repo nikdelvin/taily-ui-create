@@ -1,0 +1,21 @@
+{
+  "name": "taily-ui-create",
+  "version": "1.0.0",
+  "description": "Boilerplate template for creating beautiful landing pages using the Taily UI library.",
+  "main": "index.js",
+  "bin": {
+    "taily-ui-template": "index.js"
+  },
+  "engines": {
+    "node": "^18.0.0 || >=20.0.0"
+  },
+  "files": [
+    "index.js",
+    "template/*"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prompts": "^2.4.2"
+  }
+}
