@@ -1,3 +1,7 @@
+#! /usr/bin/env node
+
+'use strict';
+
 import prompts from "prompts"
 import { fileURLToPath } from "node:url"
 import path from "node:path"
@@ -16,7 +20,7 @@ const copyFilesAndDirectories = async (source, destination) => {
     const entries = await readdir(source)
     for (const entry of entries) {
         const sourcePath = path.join(source, entry)
-        const destPath = path.join(destination, entry)
+        const destPath = path.join(destination, entry) 
         const stat = await lstat(sourcePath)
         if (stat.isDirectory()) {
             await mkdir(destPath)
@@ -60,7 +64,7 @@ const renamePackageJsonName = async (targetDir, projectName) => {
         }
         ])
         const { projectName } = response
-        const targetDir = path.join(cwd, projectName)
+        const targetDir = path.join(process.cwd(), projectName)
         const sourceDir = path.resolve(
             fileURLToPath(import.meta.url),
             "../../template",
@@ -74,7 +78,7 @@ const renamePackageJsonName = async (targetDir, projectName) => {
             await renamePackageJsonName(targetDir, projectName)
             console.log("Installing dependencies...")
             execSync(`cd ${projectName}`)
-            execSync('npm install')
+            execSync('npm i')
             console.log("Fixing vulnerabilities...")
             execSync('npm audit fix')
             console.log("Your new Taily UI landing project is ready to edit!")
