@@ -77,10 +77,9 @@ const renamePackageJsonName = async (targetDir, projectName) => {
             await copyFilesAndDirectories(sourceDir, targetDir)
             await renamePackageJsonName(targetDir, projectName)
             console.log("Installing dependencies...")
-            execSync(`cd ${projectName}`)
-            execSync('npm i')
+            execSync(`cd ${projectName} && npm i`)
             console.log("Fixing vulnerabilities...")
-            execSync('npm audit fix')
+            execSync(`cd ${projectName} && npm audit fix`)
             console.log("Your new Taily UI landing project is ready to edit!")
         } else {
             throw new Error("Target directory already exist!")
