@@ -1,7 +1,7 @@
 {
   "name": "taily-ui-create",
   "type": "module",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "📇 Boilerplate template for creating beautiful landing pages using the Taily UI library.",
   "main": "src/index.js",
   "bin": {
@@ -13,6 +13,20 @@
   "files": [
     "src/index.js",
     "template/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nikdelvin/taily-ui"
+  },
+  "homepage": "https://tailyui.by.nikdelv.in",
+  "keywords": [
+    "components",
+    "library",
+    "ui",
+    "ui-kit",
+    "ui-components",
+    "tailwindcss",
+    "components-library"
   ],
   "author": "Nikita Stadnik <the@nikdelv.in>",
   "license": "MIT",
