@@ -1,12 +1,10 @@
 <p>
-    <a href="https://tailyui.by.nikdelv.in">
-      <img alt="Taily UI - Tailwind CSS components" width="350" src="https://tailyui.by.nikdelv.in/assets/github/logo.png">
-      <img alt="Astro.JS" width="60" src="https://astro.build/assets/press/astro-icon-light-gradient.svg">
-    </a>
+    <img alt="Taily UI - Tailwind CSS components" width="350" src="https://tailyui.by.nikdelv.in/assets/github/logo.png">
+    <img alt="Astro.JS" width="60" src="https://astro.build/assets/press/astro-icon-light-gradient.svg">
 </p>
+
 📇 Boilerplate template for creating beautiful landing pages using the Taily UI library and Astro.
 
-<br>
 <p>
     <a href="https://www.npmjs.com/package/taily-ui-create"><img src="https://img.shields.io/npm/dt/taily-ui-create.svg" alt="Total Downloads"></a>
     <a href="https://github.com/nikdelvin/taily-ui-create/releases"><img src="https://img.shields.io/npm/v/taily-ui-create.svg" alt="Latest Release"></a>
@@ -111,11 +109,13 @@ Contributions, issues, and feature requests are welcome! Feel free to check issu
     ```bash
     git checkout -b feature/AmazingFeature
     ```
+
 3. Commit your Changes
 
     ```bash
     git commit -m 'Add some AmazingFeature'
     ```
+
 4. Push to the Branch 
 
     ```bash
