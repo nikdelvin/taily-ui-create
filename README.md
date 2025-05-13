@@ -1,6 +1,6 @@
 <p>
     <img alt="Taily UI - Tailwind CSS components" width="350" src="https://tailyui.by.nikdelv.in/assets/github/logo.png">
-    <img alt="Astro.JS" width="61.5" src="https://astro.build/assets/press/astro-icon-light-gradient.svg">
+    <img alt="Astro.JS" width="61" src="https://astro.build/assets/press/astro-icon-light-gradient.svg">
 </p>
 
 📇 Boilerplate template for creating beautiful landing pages using the Taily UI library and Astro.
