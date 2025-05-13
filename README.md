@@ -1,90 +1,135 @@
 <p>
     <a href="https://tailyui.by.nikdelv.in">
       <img alt="Taily UI - Tailwind CSS components" width="350" src="https://tailyui.by.nikdelv.in/assets/github/logo.png">
-    </a><br>
-    Introducing Taily UI - 🚀 Beautiful, fast, and modern UI Library 100% built and animated with pure Tailwind CSS.
+      <img alt="Astro.JS" width="60" src="https://astro.build/assets/press/astro-icon-light-gradient.svg">
+    </a>
 </p>
+📇 Boilerplate template for creating beautiful landing pages using the Taily UI library and Astro.
 
+<br>
 <p>
-    <a href="https://www.npmjs.com/package/taily-ui"><img src="https://img.shields.io/npm/dt/taily-ui.svg" alt="Total Downloads"></a>
-    <a href="https://github.com/nikdelvin/taily-ui/releases"><img src="https://img.shields.io/npm/v/taily-ui.svg" alt="Latest Release"></a>
+    <a href="https://www.npmjs.com/package/taily-ui-create"><img src="https://img.shields.io/npm/dt/taily-ui-create.svg" alt="Total Downloads"></a>
+    <a href="https://github.com/nikdelvin/taily-ui-create/releases"><img src="https://img.shields.io/npm/v/taily-ui-create.svg" alt="Latest Release"></a>
     <a href="https://tailyui.nikdelvin.dev/docs/getting-started/license"><img src="https://img.shields.io/badge/license-MIT-blue" alt="Licenese"></a>
 </p>
 
-------
-## Getting started
+## 🏎 Introduction
 
-Taily UI can be included as a plugin into an existing Tailwind CSS project and it is supposed to help you build websites faster by having a set of web components to work with built with the utility classes from Tailwind CSS.
+This repository provides a starter template for building fast, modern, and visually appealing landing pages leveraging the power of [Astro](https://astro.build/) and the component library [Taily UI](https://www.npmjs.com/package/taily-ui) (which is built on [Tailwind CSS](https://tailwindcss.com/)). Get up and running quickly with a solid foundation.
 
-### Install using NPM
+![Template Screenshot](https://tailyui.by.nikdelv.in/assets/github/portfolio.jpg)
 
-Make sure that you have <a href="https://nodejs.org/en/" rel="nofollow" >Node.js</a> and <a href="https://tailwindcss.com/" rel="nofollow" >Tailwind CSS</a> installed. 
+## ✨ Features
 
-1. Install Taily UI as a dependency using NPM by running the following command:
+* 🚀 **Powered by Astro:** Build faster websites with Astro's innovative island architecture (zero JS by default, partial hydration).
+* 🎨 **Taily UI Integrated:** Pre-configured setup for using Taily UI components out-of-the-box.
+* 💨 **Tailwind CSS Ready:** Taily UI is built on Tailwind, giving you full access to utility-first CSS for rapid styling and customization.
+* ✨ **Minimal & Clean:** A streamlined starting point, ready for you to add your content and style.
+* 📱 **Responsive Design:** Foundational setup for responsiveness through Tailwind and Taily UI components.
+* 🔧 **Easy Setup:** Get started quickly with standard `npm` commands.
+
+## 🛠️ Tech Stack
+
+* [Astro](https://astro.build/) - The web framework for content-driven websites.
+* [Taily UI](https://www.npmjs.com/package/taily-ui) - UI component library for Tailwind CSS.
+* [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework.
+* [Node.js](https://nodejs.org/) & [npm](https://www.npmjs.com/) - Open-source JavaScript runtime environment.
+
+## 🚀 Getting Started
+
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+* [Node.js](https://nodejs.org/) (Version 18.x or higher recommended)
+* [npm](https://www.npmjs.com/) package manager
+
+### Installation
+
+1. Just one command and you are ready!
+
+    ```bash
+    npx taily-ui-create
+    ```
+
+### Running Locally
+
+To start the development server:
 
 ```bash
-npm install taily-ui
+npm start
 ```
 
-2.A. Require Taily UI as a plugin inside the `tailwind.config.js` file:
+Open your browser and navigate to http://localhost:4321 (or the port specified in your terminal). You should see the landing page template. The server will automatically reload as you make changes to the code.
 
-```javascript
-const { tailyUI } = require('taily-ui')
+### Building for Production
 
-module.exports = {
-    plugins: [tailyUI]
-}
+To create a production-ready build:
+
+```bash
+npm run build
 ```
 
-2.B. Or if you work with Typescript import Taily UI as a plugin inside the `tailwind.config.ts` file:
+This command will generate a static build of your site in the dist/ directory. You can deploy the contents of this directory to any static web host.
 
-```javascript
-import type { Config } from 'tailwindcss'
-import { tailyUI } from 'taily-ui'
+## 🔧 Usage & Customization
 
-const config: Config = {
-    plugins: [tailyUI]
-}
-export default config
+* 📄 **Pages:** Add or modify pages within the src/pages/ directory. Astro uses file-based routing. src/pages/index.astro is your main landing page.
+* 🗂 **Layouts:** Define common page structures (like headers, footers) in src/layouts/.
+* 📋 **Components:** Create reusable UI elements (using Astro syntax or integrating UI framework components) in src/components/.
+* 🪄 **Taily UI:** Import and use Taily UI components directly within your .astro files as needed. Refer to the Taily UI documentation for available components and usage.
+* 💎 **Tailwind CSS:** Customize the design system, add plugins, or modify base styles in tailwind.config.mjs.
+Static Assets: Place images, fonts, and other static files in the public/ directory. They will be served from the root (/).
+
+## 📁 Project Structure
+
+```
+├── public/             # Static assets (images, fonts, favicons)
+├── src/
+│   ├── components/     # Reusable Astro/Taily UI components
+│   ├── layouts/        # Base page layouts (e.g., BaseLayout.astro)
+│   └── pages/          # Site pages/routes (e.g., index.astro)
+├── .gitignore          # Git Ignore configuration file
+├── .prettierrc.json    # Prettier configuration file
+├── astro.config.mjs    # Astro configuration file
+├── eslint.config.mjs   # ESLint configuration file
+├── package-lock.json   # Project dependencies & scripts (lockfile)
+├── package.json        # Project dependencies & scripts
+├── postcss.config.mjs  # PostCSS configuration file
+├── tailwind.config.ts  # Tailwind CSS configuration file
+└── tsconfig.json       # TypeScript configuration file
 ```
 
-### Data attributes
+## 🤝 Contributing
 
-The preferred way to use the interactive UI components from Taily UI is via the data attributes interface which allows us to add functionality via the HTML element attributes and most of the examples on our documentation applies this strategy.
+Contributions, issues, and feature requests are welcome! Feel free to check issues page.   
 
-For example, to set up a button component all you need to do is use `data-color`, `data-type` and `data-size` to setup color, type and size of the component.
+1. Fork the Project
 
-```html
-<button data-color="default" data-type="solid" data-size="medium" class="button">
-    Start using Taily UI
-</button>
-```
+2. Create your Feature Branch
 
-## Components
+    ```bash
+    git checkout -b feature/AmazingFeature
+    ```
+3. Commit your Changes
 
-Taily UI is an open source collection of UI components built with the utility classes from Tailwind CSS that you can use as a starting point when coding user interfaces and websites.
+    ```bash
+    git commit -m 'Add some AmazingFeature'
+    ```
+4. Push to the Branch 
 
-<table>
-    <tr>
-        <td width="33.3333%">Button</td>
-        <td width="33.3333%">Button Group</td>
-        <td width="33.3333%">Card</td>
-    </tr>
-    <tr>
-        <td width="33.3333%">
-            <a href="https://tailyui.by.nikdelv.in/docs/components/buttons">
-                <img alt="Tailwind CSS Button" src="https://tailyui.by.nikdelv.in/assets/github/button.png">
-            </a>
-        </td>
-        <td width="33.3333%">
-            <a href="https://tailyui.by.nikdelv.in/docs/components/button-groups">
-                <img alt="Tailwind CSS Button Group" src="https://tailyui.by.nikdelv.in/assets/github/button-group.png">
-            </a>
-        </td>
-        <td width="33.3333%">
-            <a href="https://tailyui.by.nikdelv.in/docs/components/cards">
-                <img alt="Tailwind CSS Card" src="https://tailyui.by.nikdelv.in/assets/github/card.png">
-            </a>
-        </td>
-    </tr>
-</table>
+    ```bash
+    git push origin feature/AmazingFeature
+    ```
+
+5. Open a Pull Request
+
+## 📜 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgements
+
+1. [Astro Team](https://astro.build/)
+2. [Taily UI Team](https://www.npmjs.com/package/taily-ui)
+3. [Tailwind CSS Team](https://tailwindcss.com/)

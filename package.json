@@ -1,7 +1,7 @@
 {
   "name": "taily-ui-create",
   "type": "module",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "📇 Boilerplate template for creating beautiful landing pages using the Taily UI library.",
   "main": "src/index.js",
   "bin": {
